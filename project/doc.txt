@@ -1,0 +1,66 @@
+Orientações: 
+
+Utilize o livro de regras para entender os requisitos.
+Desenvolva utilizando paradigmas de orientação a objetos em python
+Desenvolva as três formas de distribuição de atributos disponíveis na página 14: Estilo clássico; estilo aventureiro; estilo heróico.
+
+
+Critérios de avaliação:
+
+Utilizar a orientação a objetos para organizar o código, classes com papéis específicos, funções (métodos) que possuam responsabilidades únicas e claras. (Valor 0.2)
+Utilizar linguagem python (Requisito obrigatório)
+Cada um dos três estilos deve seguir as regras do livro de regras corretamente, utilizar uma 'main' como interação com o usuário. (Valor 0.3)
+
+
+Entrega: Enviar o link do GitHub com o código
+
+----- ----- ----- ATRIBUTOS ----- ----- -----
+    FORCA (FOR)
+    - Fraco (3-8)
+    - Mediano (9-12)
+    - Forte (13-16)
+    - Muito Forte (17-18)
+
+    DESTREZA (DES)
+    - Letárgico (3-8)
+    - Mediano (9-12)
+    - Ágil (13-16)
+    - Preciso(17-18)
+
+    CONSTITUICAO (CON)
+    - Frágil (3-8)
+    - Mediano (9-12)
+    - Resistente (13-16)
+    - Vigoroso (17-18)
+
+    INTELIGENCIA (INT)
+    - Inepto (3-8)
+    - Mediano (9-12)
+    - Inteligente (13-16)
+    - Gênio (17-18)
+
+    SABEDORIA (SAB)
+    - Tolo (3-8)
+    - Mediano (9-12)
+    - Intuitivo (13-16)
+    - Presciente (17-18)
+
+    CARISMA (CAR)
+    - Descortês (3-8)
+    - Mediano (9-12)
+    - Influente (13-16)
+    - Ídolo (17-18)
+
+----- ----- ----- ESTILOS ----- ----- -----
+# Gerar personagens com o mesmo método
+
+-> Estilo de Rolagem Clássico: 3d6 seis vezes distribuição entre os seis atributos.
+-> Estilo de Rolagem Aventureiro: 3d6 seis vezes distribuição entre os seis atributos.
+-> Estilo de Rolagem Heróico: 4d6 seis vezes (eliminando o d6 mais baixo da soma) entre os seis atributos.
+
+----- ----- ----- SISTEMA DE JOGO ----- ----- -----
+Estilo Clássico rola três dados seis vezes, cada vez que rolar o dado, o atributo correspondente à rodada do dado é a quantidade de pontos que o atributo receberá.
+
+Estilo Aventureiro rola três dados seis vezes, cada vez que rolar o dado, o atributo correspondente à rodada do dado é a quantidade de pontos que o atributo receberá.
+
+Estilo Heróico rola quatro dados seis vezes, porém o mestre pode decidir qual soma de pontos vai para qual atributo.
