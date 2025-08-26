@@ -1,8 +1,6 @@
 from dado import Dado
 
 class Personagem:
-    """Representa o personagem do jogador, com todos os seus atributos e características."""
-
     def __init__(self, nome):
         self.nome = nome
         self.nivel = 1
@@ -27,7 +25,6 @@ class Personagem:
         self.notas = []
 
     def _calcular_modificador(self, valor):
-        """Calcula o modificador de um atributo com base no seu valor."""
         if valor <= 3: return -3
         if valor <= 5: return -2
         if valor <= 8: return -1
@@ -38,9 +35,8 @@ class Personagem:
         return 4
 
     def definir_atributos(self, estilo):
-        """Gera os valores dos atributos de acordo com o estilo escolhido."""
         if estilo == 1:
-            print("\nRolando atributos no Estilo Clássico (3d6, em ordem)...")
+            print("\nRolando atributos no Estilo Clássico (3d6, sem distribuição)...")
             ordem_attr = ["FOR", "DES", "CON", "INT", "SAB", "CAR"]
             for attr in ordem_attr:
                 valor = Dado.rolar(3, 6)
@@ -51,11 +47,11 @@ class Personagem:
         elif estilo in [2, 3]:
             rolagens = []
             if estilo == 2:
-                print("\nRolando 6 valores para o Estilo Aventureiro (3d6)...")
+                print("\nRolando 6 valores para o Estilo Aventureiro (3d6, com distribuição)...")
                 for _ in range(6):
                     rolagens.append(Dado.rolar(3, 6))
             else:
-                print("\nRolando 6 valores para o Estilo Heróico (4d6, descarta o menor)...")
+                print("\nRolando 6 valores para o Estilo Heróico (4d6, descartando o menor e com distribuição)...")
                 for _ in range(6):
                     rolagens.append(Dado.rolar_com_descarte(4, 6, 1))
             
@@ -78,37 +74,42 @@ class Personagem:
                         else:
                             print("Valor inválido ou já utilizado. Tente novamente.")
                     except ValueError:
-                        print("Por favor, digite um número.")
+                        print("Erro: Você precisa inserir um número!")
 
     def exibir_ficha(self):
-        """Imprime a ficha de personagem final de forma organizada."""
-        print("\n" + "="*40)
+        print("\n" + "=-"*40 + "=")
         print(f"FICHA DE PERSONAGEM: {self.nome.upper()}")
-        print("="*40)
+        print("=-"*40 + "=")
         print(f"Raça: {self.raca.nome if self.raca else 'Não definida'} | Classe: {self.classe.nome if self.classe else 'Não definida'} | Nível: {self.nivel}")
-        print("-"*40)
+        print("=-"*40 + "=" + "\n" + "\n" + "=-"*40 + "=")
         print("Atributos:")
         for attr, data in self.atributos.items():
             mod_str = f"+{data['mod']}" if data['mod'] >= 0 else str(data['mod'])
             print(f"  {attr}: {data['valor']:<2} (Mod: {mod_str})")
-        print("-"*40)
+        print("=-"*40 + "=" + "\n\n" + "=-"*40 + "=")
         
         print(f"Pontos de Vida (PV): {self.pontos_de_vida}")
         print(f"Base de Ataque (BA): +{self.base_de_ataque}")
         print(f"Jogada de Proteção (JP): {self.jogada_de_protecao}")
         print(f"Movimento: {self.movimento}m | Infravisão: {self.infravisao}")
-        print("-"*40)
+        print("=-"*40 + "=" + "\n\n" + "=-"*40 + "=")
         
         if self.proficiencias:
             print("Proficiências:")
             for p in self.proficiencias: print(f"- {p}")
+            print("=-"*40 + "=" + "\n\n" + "=-"*40 + "=")
+        
         if self.habilidades:
-            print("\nHabilidades Especiais:")
+            print("Habilidades Especiais:")
             for h in self.habilidades: print(f"- {h}")
+            print("=-"*40 + "=" + "\n\n" + "=-"*40 + "=")    
+        
         if self.restricoes:
-            print("\nRestrições:")
+            print("Restrições:")
             for r in self.restricoes: print(f"- {r}")
+            print("=-"*40 + "=" + "\n\n" + "=-"*40 + "=")
+        
         if self.notas:
-            print("\nNotas:")
+            print("Notas:")
             for n in self.notas: print(f"- {n}")
-        print("="*40)
+            print("=-"*40 + "=")
