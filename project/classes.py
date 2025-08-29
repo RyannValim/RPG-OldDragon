@@ -2,8 +2,8 @@ class Classe:
     def __init__(self, nome, dado_de_vida, ba_inicial, jp_inicial):
         self.nome = nome
         self.dado_de_vida = dado_de_vida
-        self.ba_inicial = ba_inicial
-        self.jp_inicial = jp_inicial
+        self.ba_inicial = ba_inicial # base de ataque
+        self.jp_inicial = jp_inicial # jodada de proteção
 
     def aplicar_bonus_de_classe(self, personagem):
         personagem.pontos_de_vida = self.dado_de_vida + personagem.atributos['CON']['mod']

@@ -7,6 +7,7 @@ def main():
     
     personagem = Personagem(nome)
 
+# region Definição dos atributos
     print(f"\nOlá {nome}! Escolha o método para gerar os atributos (1, 2 ou 3):")
     print("     " + "1. Estilo Clássico (rola 3d6 em ordem para cada atributo)")
     print("     " + "2. Estilo Aventureiro (rola 3d6 seis vezes e distribui os valores)")
@@ -22,7 +23,9 @@ def main():
             print("Erro: Você precisa inserir um número!")
     
     personagem.definir_atributos(estilo_escolhido)
+# endregion
 
+# region Escolha da raça
     print("\nEscolha a raça do seu personagem (1, 2 ou 3):")
     print("1. Humano")
     print("2. Elfo")
@@ -40,7 +43,9 @@ def main():
             
     personagem.raca = racas_disponiveis[raca_escolhida]
     personagem.raca.aplicar_habilidades_raciais(personagem)
+# endregion
 
+# region Escolha da classe
     print("\nEscolha a classe do seu personagem (1, 2 ou 3):")
     print("1. Guerreiro")
     print("2. Clérigo")
@@ -58,6 +63,7 @@ def main():
             
     personagem.classe = classes_disponiveis[classe_escolhida]
     personagem.classe.aplicar_bonus_de_classe(personagem)
+# endregion
 
     personagem.exibir_ficha()
 

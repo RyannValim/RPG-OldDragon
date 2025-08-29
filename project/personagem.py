@@ -96,6 +96,7 @@ class Personagem:
         
         if self.proficiencias:
             print("Proficiências:")
+            
             for p in self.proficiencias: print(f"- {p}")
             print("=-"*40 + "=" + "\n\n" + "=-"*40 + "=")
         
