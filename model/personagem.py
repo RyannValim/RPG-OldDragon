@@ -1,4 +1,3 @@
-# Em model/personagem.py
 from model.dado import Dado
 
 class Personagem:
