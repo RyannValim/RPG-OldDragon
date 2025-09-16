@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Ficha de {{ personagem.nome }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>FICHA DE: {{ personagem.nome.upper() }}</h1>
+        <hr> 
+        
+        <div class="ficha-header">
+            <span><strong>Raça:</strong> {{ personagem.raca.nome }}</span>
+            <span><strong>Classe:</strong> {{ personagem.classe.nome }}</span>
+            <span><strong>Nível:</strong> {{ personagem.nivel }}</span>
+        </div>
+    
+        <div class="ficha-corpo">
+            
+            <div class="coluna">
+                <div class="ficha-secao">
+                    <h3>Atributos:</h3>
+                    <ul>
+                        {% for attr, data in personagem.atributos.items() %}
+                            <li>
+                                <strong>{{ attr }}:</strong> {{ data.valor }} 
+                                (Mod: {% if data.mod >= 0 %}+{% endif %}{{ data.mod }})
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <div class="ficha-secao">
+                    <h3>Combate e Vitalidade:</h3>
+                    <ul>
+                        <li><strong>Pontos de Vida (PV):</strong> {{ personagem.pontos_de_vida }}</li>
+                        <li><strong>Base de Ataque (BA):</strong> +{{ personagem.base_de_ataque }}</li>
+                        <li><strong>Jogada de Proteção (JP):</strong> {{ personagem.jogada_de_protecao }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="coluna">
+                <div class="ficha-secao">
+                    <h3>Habilidades e Proficiências:</h3>
+                    <ul>
+                        {% for item in personagem.habilidades + personagem.proficiencias %}
+                            {% set parts = item.split(':', 1) %}
+                            <li><strong>{{ parts[0] }}: </strong>{{ parts[1] | trim }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            
+                {% if personagem.restricoes %}
+                    <div class="ficha-secao">
+                        <h3>Restrições:</h3>
+                        <ul>
+                            {% for restricao in personagem.restricoes %}
+                                {% set parts = restricao.split(':', 1) %}
+                                <li><strong>{{ parts[0] }}: </strong>{{ parts[1] | trim }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+
+        <a href="/" class="botao-voltar">GERAR OUTRO PERSONAGEM</a>
+    </div>
+</body>
+</html>

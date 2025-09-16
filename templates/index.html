@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criador de Personagem Old Dragon</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Criação de Personagens</h2>
+        <h1>OLD DRAGON</h1>
+    
+        <form action="/distribuir_atributos" method="POST">
+            <p>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required maxlength="25">
+            </p>
+    
+            <p>
+                <label for="estilo">Estilo:</label>
+                <select id="estilo" name="estilo_atributos" required>
+                    <option value="1">1. Clássico (3d6 em ordem)</option>
+                    <option value="2">2. Aventureiro (3d6 distribuídos)</option>
+                    <option value="3">3. Heróico (4d6, descarta o menor)</option>
+                </select>
+            </p>
+    
+            <p>
+                <label for="raca">Raça:</label>
+                <select id="raca" name="raca" required>
+                    <option value="humano">Humano</option>
+                    <option value="elfo">Elfo</option>
+                    <option value="anao">Anão</option>
+                </select>
+            </p>
+    
+            <p>
+                <label for="classe">Classe:</label>
+                <select id="classe" name="classe" required>
+                    <option value="guerreiro">Guerreiro</option>
+                    <option value="clerigo">Clérigo</option>
+                    <option value="mago">Mago</option>
+                </select>
+            </p>
+            
+            <button type="submit">GERAR PERSONAGEM</button>
+        </form>
+    </div>
+</body>
+</html>
