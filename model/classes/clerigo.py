@@ -7,7 +7,7 @@ class Clerigo(Classe):
             dado_de_vida=8,
             ba_inicial=1,
             jp_inicial=5,
-            prioridade_atributos=["SAB", "CON", "FOR", "CAR", "DES", "INT"] # NOVA LISTA
+            prioridade_atributos=["SAB", "CON", "FOR", "CAR", "DES", "INT"]
         )
 
     def aplicar_bonus_de_classe(self, personagem):

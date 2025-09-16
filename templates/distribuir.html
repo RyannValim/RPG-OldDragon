@@ -32,47 +32,36 @@
     </div>
 
     <script>
-        // Este evento garante que nosso código só vai rodar depois que a página inteira for carregada.
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // 1. Pegamos os valores rolados do Python e os transformamos em uma variável JavaScript.
-            // O filtro `tojson` é a forma segura de fazer isso no Flask/Jinja2.
-            const rolagens = {{ rolagens | tojson }};
-            const selects = document.querySelectorAll('select'); // Pega todos os 6 menus suspensos.
 
-            // 2. Criamos uma função para atualizar as opções cada vez que uma seleção é feita.
+            const rolagens = {{ rolagens | tojson }};
+            const selects = document.querySelectorAll('select');
+
             function updateOptions() {
-                // Conta quantas vezes cada valor foi rolado originalmente.
                 const rolagensCount = rolagens.reduce((acc, val) => {
                     acc[val] = (acc[val] || 0) + 1;
                     return acc;
                 }, {});
 
-                // Pega todos os valores que já foram selecionados nos menus.
                 const selectedValues = Array.from(selects)
                                             .map(s => s.value)
-                                            .filter(v => v !== ""); // Ignora os não selecionados
+                                            .filter(v => v !== "");
 
-                // Conta quantas vezes cada valor já foi usado.
                 const selectedCount = selectedValues.reduce((acc, val) => {
                     acc[val] = (acc[val] || 0) + 1;
                     return acc;
                 }, {});
 
-                // 3. Itera em cada menu suspenso para habilitar/desabilitar as opções.
                 selects.forEach(select => {
-                    const currentValue = select.value; // O valor atualmente selecionado neste menu.
+                    const currentValue = select.value;
                     
-                    // Itera em cada <option> dentro do menu.
                     select.querySelectorAll('option').forEach(option => {
-                        if (option.value === "") return; // Ignora a opção "Escolha um valor..."
+                        if (option.value === "") return;
 
                         const optionValue = option.value;
                         const totalAvailable = rolagensCount[optionValue] || 0;
                         const totalUsed = selectedCount[optionValue] || 0;
 
-                        // Desabilita a opção se já foi usada o máximo de vezes disponíveis.
-                        // A exceção é a própria seleção atual deste menu.
                         if (totalUsed >= totalAvailable && optionValue !== currentValue) {
                             option.disabled = true;
                         } else {
@@ -82,13 +71,10 @@
                 });
             }
 
-            // 4. Adiciona um "ouvinte" de evento a cada menu.
-            // A função `updateOptions` será chamada toda vez que o usuário mudar uma seleção.
             selects.forEach(select => {
                 select.addEventListener('change', updateOptions);
             });
 
-            // Chama a função uma vez no início para garantir o estado inicial correto.
             updateOptions();
         });
     </script>

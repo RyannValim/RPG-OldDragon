@@ -7,7 +7,7 @@ class Guerreiro(Classe):
             dado_de_vida=10,
             ba_inicial=1,
             jp_inicial=5,
-            prioridade_atributos=["FOR", "CON", "DES", "SAB", "CAR", "INT"] # NOVA LISTA
+            prioridade_atributos=["FOR", "CON", "DES", "SAB", "CAR", "INT"]
         )
 
     def aplicar_bonus_de_classe(self, personagem):

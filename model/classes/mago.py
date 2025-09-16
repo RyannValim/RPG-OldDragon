@@ -7,7 +7,7 @@ class Mago(Classe):
             dado_de_vida=4,
             ba_inicial=0,
             jp_inicial=5,
-            prioridade_atributos=["INT", "DES", "CON", "SAB", "CAR", "FOR"] # NOVA LISTA
+            prioridade_atributos=["INT", "DES", "CON", "SAB", "CAR", "FOR"]
         )
 
     def aplicar_bonus_de_classe(self, personagem):

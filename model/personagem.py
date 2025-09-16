@@ -28,10 +28,8 @@ class Personagem:
     def _calcular_modificador(self, valor):
         return (valor - 10) // 2
 
-    # MÉTODO ATUALIZADO
     def definir_atributos(self, estilo, classe_personagem):
         if estilo == 1:
-            # Estilo Clássico (não precisa de alteração)
             ordem_attr = ["FOR", "DES", "CON", "INT", "SAB", "CAR"]
             for attr in ordem_attr:
                 valor = Dado.rolar(3, 6)
@@ -39,26 +37,18 @@ class Personagem:
                 self.atributos[attr]['mod'] = self._calcular_modificador(valor)
         
         elif estilo in [2, 3]:
-            # Estilos Aventureiro e Heróico (LÓGICA NOVA E AUTOMATIZADA)
             rolagens = []
-            if estilo == 2: # Aventureiro
+            if estilo == 2:
                 for _ in range(6):
                     rolagens.append(Dado.rolar(3, 6))
-            else: # Heróico
+            else:
                 for _ in range(6):
                     rolagens.append(Dado.rolar_com_descarte(4, 6, 1))
             
-            # Ordena os valores do maior para o menor
             rolagens.sort(reverse=True)
             
-            # Pega a lista de prioridades da classe do personagem
             prioridades = classe_personagem.prioridade_atributos
             
-            # Distribui os melhores valores nos melhores atributos
             for attr, valor in zip(prioridades, rolagens):
                 self.atributos[attr]['valor'] = valor
                 self.atributos[attr]['mod'] = self._calcular_modificador(valor)
-
-    def exibir_ficha(self):
-        # Este método não é mais usado na versão web, mas podemos manter por enquanto
-        pass

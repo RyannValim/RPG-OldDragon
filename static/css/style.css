@@ -1,42 +1,38 @@
-/* Importando uma fonte do Google Fonts para dar um ar de fantasia */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
 
 * {
     box-sizing: border-box;
 }
 
-/* Estilos gerais para a página inteira */
 body {
-    font-family: 'Merriweather', serif; /* Usando a fonte que importamos */
-    background-color: #f0eadd; /* Um fundo com cor de pergaminho/papel antigo */
-    color: #3d3d3d; /* Cor de texto escura para boa legibilidade */
+    font-family: 'Merriweather', serif;
+    background-color: #f0eadd;
+    color: #3d3d3d;
     margin: 0;
     padding: 20px;
     display: flex;
-    justify-content: center; /* Centraliza o conteúdo principal horizontalmente */
-    align-items: center; /* ALTERADO: Centraliza o conteúdo verticalmente também */
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
 }
 
-/* O "container" principal que segura nosso conteúdo (o retângulo do seu desenho) */
 .container {
-    background-color: #ffffff; /* Fundo branco para o nosso "papel" */
+    background-color: #ffffff;
     border: 1px solid #cccccc;
-    border-radius: 8px; /* Cantos levemente arredondados */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Uma sombra suave para dar profundidade */
-    padding: 20px 30px; /* ALTERADO: Diminuído o padding vertical */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px 30px;
     width: 100%;
-    max-width: 600px; /* Largura máxima para não ficar muito largo em telas grandes */
+    max-width: 600px;
     box-sizing: border-box;
 }
 
-/* Estilos para os títulos */
 h1, h2, h3 {
     text-align: center;
 }
 
 h1 {
-    font-size: 2.2em; /* ALTERADO: Levemente menor */
+    font-size: 2.2em;
     margin-bottom: 5px;
     color: rgb(141, 0, 0);
 }
@@ -44,21 +40,19 @@ h1 {
 h2 {
     font-size: 1.8em;
     margin-top: 0;
-    margin-bottom: 15px; /* ALTERADO: Menos espaço abaixo */
+    margin-bottom: 15px;
     color: #5a5a5a;
 }
 
-/* Estilo para a linha horizontal (o traço) */
 hr {
     border: 0;
     height: 1px;
-    background-color: #ccc; /* Uma cor cinza clara */
-    margin: 15px 0; /* ALTERADO: Margem vertical menor */
+    background-color: #ccc;
+    margin: 15px 0;
 }
 
-/* Estilos para o formulário na index.html */
 form p {
-    margin-bottom: 15px; /* ALTERADO: Menos espaço entre os campos */
+    margin-bottom: 15px;
 }
 
 label {
@@ -95,17 +89,15 @@ button:hover {
     background-color: rgb(173, 32, 32);
 }
 
-/* --- Estilos específicos para a ficha de resultado (resultado.html) --- */
-
 .ficha-header {
     display: flex;
     justify-content: space-around;
     text-align: center;
-    padding: 5px 0; /* ALTERADO: Menos padding vertical */
+    padding: 5px 0;
 }
 
 .ficha-secao {
-    margin-top: 15px; /* ALTERADO: Menos espaço entre as seções */
+    margin-top: 15px;
 }
 
 .ficha-secao h3 {
@@ -113,7 +105,7 @@ button:hover {
     border-bottom: 2px solid #3d3d3d;
     padding-bottom: 5px;
     font-weight: bold;
-    margin-bottom: 10px; /* ALTERADO: Menos espaço abaixo do título da seção */
+    margin-bottom: 10px;
 }
 
 .ficha-secao ul {
@@ -122,14 +114,13 @@ button:hover {
 }
 
 .ficha-secao li {
-    padding: 4px 0; /* ALTERADO: Menos espaçamento entre as linhas */
+    padding: 4px 0;
 }
 
-/* Estilo para o link que funciona como botão de voltar */
 .botao-voltar {
     display: block;
     text-align: center;
-    margin-top: 25px; /* ALTERADO: Menos espaço acima do botão */
+    margin-top: 25px;
     background-color: #5a5a5a;
     color: white;
     padding: 12px 20px;
@@ -142,20 +133,18 @@ button:hover {
     background-color: #7a7a7a;
 }
 
-/* --- ESTILOS PARA O LAYOUT DE DUAS COLUNAS (COM AJUSTES) --- */
 .ficha-corpo {
     display: flex;
-    gap: 30px; /* Espaço entre as colunas */
+    gap: 30px;
     margin-top: 15px;
 }
 
 .coluna {
-    width: 50%; /* ALTERADO: Cada coluna agora ocupa metade do espaço */
-    box-sizing: border-box; /* Garante que o padding não "empurre" o layout */
+    width: 50%;
+    box-sizing: border-box;
 }
 
-/* NOVO: Adiciona a linha na primeira coluna */
 .coluna:first-child {
-    border-right: 1px solid #ccc; /* A linha vertical cinza clara */
-    padding-right: 30px; /* Espaçamento para o texto não colar na linha */
+    border-right: 1px solid #ccc;
+    padding-right: 30px;
 }
